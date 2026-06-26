@@ -335,16 +335,13 @@
 
     /* Scroll cue */
     .scroll-cue {
-      position: absolute;
-      bottom: 2.25rem;
-      left: 50%;
-      transform: translateX(-50%);
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 0.5rem;
       opacity: 0;
       animation: fadeIn 1s 2s ease forwards;
+      margin-top: 2rem;
     }
     .sc-text {
       font-size: 0.6rem;
@@ -369,12 +366,12 @@
        ABOUT SECTION
     ==================================================== */
     .about {
-      padding: clamp(5rem, 10vw, 8rem) 1.5rem;
+      padding: clamp(3rem, 6vw, 5rem) 1.5rem;
       max-width: 1120px;
       margin: 0 auto;
     }
 
-    .sec-head { margin-bottom: 3rem; max-width: 580px; }
+    .sec-head { margin-bottom: 2rem; max-width: 580px; }
     .sec-kicker {
       display: flex;
       align-items: center;
@@ -631,7 +628,7 @@
     ==================================================== */
     .cta-band {
       border-top: 1px solid var(--border);
-      padding: clamp(4rem, 8vw, 6.5rem) 1.5rem;
+      padding: clamp(3rem, 6vw, 4.5rem) 1.5rem;
       text-align: center;
       background: var(--cream-mid);
     }
