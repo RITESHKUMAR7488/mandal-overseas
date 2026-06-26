@@ -1,0 +1,25 @@
+{
+  "name": "mandal_overseas",
+  "version": "1.0.0",
+  "description": "Professional **Coming Soon** landing page for [Mandal Overseas](https://www.mandaloverseas.com) — a premier manufacturer and exporter of Okoume timber products, operating from Kolkata, India and Gabon, Africa.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "serve public",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RITESHKUMAR7488/mandal-overseas.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/RITESHKUMAR7488/mandal-overseas/issues"
+  },
+  "homepage": "https://github.com/RITESHKUMAR7488/mandal-overseas#readme",
+  "devDependencies": {
+    "serve": "^14.2.6"
+  }
+}
