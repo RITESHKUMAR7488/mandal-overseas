@@ -198,73 +198,23 @@
       height: clamp(200px, 28vw, 260px);
       margin: 0 auto 1.6rem;
       animation: fadeIn 0.9s 0.1s ease both;
-    }
-
-    /* Spinning conic gradient ring — brand colors */
-    .spin-ring {
-      position: absolute;
-      inset: 0;
-      border-radius: 50%;
-      padding: 3px;
-      background: conic-gradient(
-        from 0deg,
-        #e8820c 0deg,
-        #f5a623 55deg,
-        #fbbf4a 90deg,
-        #2272b8 145deg,
-        #3a8fd1 200deg,
-        rgba(34,114,184,0.1) 265deg,
-        #e8820c 360deg
-      );
-      -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      animation: spin 4.5s linear infinite;
-    }
-
-    /* Slow counter-spin ring */
-    .deco-ring {
-      position: absolute;
-      inset: 9px;
-      border-radius: 50%;
-      border: 1px solid rgba(245,166,35,0.14);
-      animation: spin 11s linear infinite reverse;
-    }
-    .deco-ring::before {
-      content: '';
-      position: absolute;
-      inset: 7px;
-      border-radius: 50%;
-      border: 1px dashed rgba(34,114,184,0.18);
-    }
-
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    .logo-plate {
-      position: absolute;
-      inset: 14px;
-      border-radius: 50%;
-      background: var(--cream);
-      border: 1px solid rgba(13,30,61,0.12);
+      perspective: 1000px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow:
-        inset 0 2px 20px rgba(13,30,61,0.06),
-        0 0 0 1px rgba(200,130,12,0.1),
-        0 6px 32px rgba(13,30,61,0.12);
     }
+
     .logo-img {
-      width: 80%;
-      height: 80%;
+      width: 100%;
+      height: 100%;
       object-fit: contain;
-      animation: breathe 5s ease-in-out infinite;
+      animation: spin3D 10s linear infinite;
+      transform-style: preserve-3d;
+      filter: drop-shadow(0 10px 20px rgba(13,30,61,0.15));
     }
-    @keyframes breathe {
-      0%,100% { transform: scale(1); }
-      50%      { transform: scale(1.038); }
+    @keyframes spin3D {
+      from { transform: rotateY(0deg); }
+      to   { transform: rotateY(360deg); }
     }
 
     /* HEADLINE */
@@ -856,14 +806,10 @@
       <span class="eyebrow-line" aria-hidden="true"></span>
     </div>
 
-    <!-- Spinning Logo -->
+    <!-- Spinning 3D Logo -->
     <div class="logo-wrap" role="img" aria-label="Mandal Overseas logo">
-      <div class="spin-ring" aria-hidden="true"></div>
-      <div class="deco-ring" aria-hidden="true"></div>
-      <div class="logo-plate" aria-hidden="true">
-        <img src="./WhatsApp_Image_2026-06-26_at_9.51.30_AM-removebg-preview.png"
-             alt="Mandal Overseas Export Import" class="logo-img" />
-      </div>
+      <img src="./WhatsApp_Image_2026-06-26_at_9.51.30_AM-removebg-preview.png"
+           alt="Mandal Overseas Export Import" class="logo-img" />
     </div>
 
     <h1 class="h-headline">
