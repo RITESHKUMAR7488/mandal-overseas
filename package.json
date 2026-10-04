@@ -1,11 +1,13 @@
 {
   "name": "mandal_overseas",
   "version": "1.0.0",
-  "description": "Professional **Coming Soon** landing page for [Mandal Overseas](https://www.mandaloverseas.com) — a premier manufacturer and exporter of Okoume timber products, operating from Kolkata, India and Gabon, Africa.",
+  "description": "Mandal Overseas — a premium Okoume timber landing page with a responsive scroll-driven material story.",
   "main": "index.js",
   "scripts": {
     "dev": "serve public",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "check": "node --check public/animation.js && node --check scripts/verify.cjs",
+    "test": "node scripts/verify.cjs",
+    "vendor": "node scripts/vendor.cjs"
   },
   "repository": {
     "type": "git",
@@ -20,6 +22,11 @@
   },
   "homepage": "https://github.com/RITESHKUMAR7488/mandal-overseas#readme",
   "devDependencies": {
-    "serve": "^14.2.6"
+    "agent-browser": "^0.38.2",
+    "serve": "^14.2.6",
+    "sharp": "^0.35.5"
+  },
+  "dependencies": {
+    "gsap": "^3.15.0"
   }
 }

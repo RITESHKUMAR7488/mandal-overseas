@@ -1,0 +1,172 @@
+/* The room and the animated model share one measured floor plane. */
+.hero-picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.hero-room img {
+  object-position: center;
+}
+.hero-copy {
+  z-index: 6;
+}
+@media (min-width: 1000px) {
+  .hero-copy h1 {
+    font-size: clamp(60px, 6vw, 94px);
+  }
+}
+.door-object,
+.door-frame {
+  left: var(--hero-left, 57%);
+  top: var(--hero-top, 60svh);
+  transform: none;
+}
+.door-frame,
+.motion-ready .door-frame {
+  left: var(--hero-left, 57%);
+  top: var(--hero-top, 60svh);
+  width: calc(var(--door-w) + 28px);
+  height: calc(var(--door-h) + 18px);
+  margin-left: calc(var(--door-w) / -2 - 14px);
+  margin-top: calc(var(--door-h) / -2 - 18px);
+  border: 7px solid #976e47;
+  border-bottom: 0;
+  background: #34251b;
+  box-shadow:
+    inset 6px 5px 8px #140e0bb3,
+    inset -5px 0 5px #140e0b80,
+    2px 2px 3px #37291d4d,
+    -1px -1px 1px #f4d6a56b;
+  z-index: 2;
+}
+.door-frame:before {
+  content: "";
+  position: absolute;
+  inset: 2px 3px 0;
+  border: 1px solid #e0b47a40;
+  border-bottom: 0;
+  pointer-events: none;
+}
+.door-frame:after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: -7px;
+  right: -7px;
+  height: 3px;
+  background: #593d29;
+  box-shadow: 0 2px 2px #37251866;
+}
+.door-object {
+  perspective: none;
+  --sheet-depth: 16px;
+}
+.door-pivot {
+  position: absolute;
+  inset: 0;
+  transform-origin: 0% 100%;
+  transform-style: preserve-3d;
+  --corner-angle: 0deg;
+  transform: rotate3d(1, -2, 0, var(--corner-angle));
+  will-change: transform;
+}
+.corner-anchor {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+.sheet-plywood {
+  transform: translateZ(0);
+}
+.sheet-timber {
+  transform: translateZ(-8px);
+}
+.sheet-veneer {
+  transform: translateZ(-16px);
+}
+.sheet-back {
+  box-shadow: inset 0 0 12px #4f2c1426;
+}
+/* Six closed faces prevent open, splinter-like edges during the corner turn. */
+.sheet-front {
+  filter: none !important;
+  transform: translateZ(calc(var(--sheet-depth) / 2));
+}
+.sheet-back {
+  transform: rotateY(180deg) translateZ(calc(var(--sheet-depth) / 2));
+}
+.sheet-edge,
+.sheet-left,
+.sheet-top,
+.sheet-bottom {
+  backface-visibility: hidden;
+}
+.sheet-left {
+  position: absolute;
+  top: 0;
+  left: calc(var(--sheet-depth) / -2);
+  width: var(--sheet-depth);
+  height: 100%;
+  transform: rotateY(-90deg);
+  background: repeating-linear-gradient(90deg, #8b613e 0 1px, #d6b080 1px 2px);
+}
+.sheet-bottom {
+  position: absolute;
+  bottom: calc(var(--sheet-depth) / -2);
+  left: 0;
+  height: var(--sheet-depth);
+  width: 100%;
+  transform: rotateX(-90deg);
+  background: #ad804f;
+}
+.sheet-edge {
+  right: calc(var(--sheet-depth) / -2);
+  width: var(--sheet-depth);
+  transform: rotateY(90deg);
+}
+.sheet-top {
+  top: calc(var(--sheet-depth) / -2);
+  height: var(--sheet-depth);
+  transform: rotateX(90deg);
+}
+.door-handle {
+  transform: translateZ(calc(var(--sheet-depth) / 2 + 4px));
+}
+.material-mark {
+  transform: translateZ(calc(var(--sheet-depth) / 2 + 2px));
+}
+.door-shadow {
+  opacity: 0.08;
+  filter: blur(8px);
+}
+.motion-ready .door-object {
+  left: 50%;
+  top: 50%;
+}
+@media (max-width: 767px) {
+  .hero-picture {
+    height: 112%;
+  }
+  .hero-room img {
+    object-position: center;
+  }
+  .door-object,
+  .door-frame {
+    left: var(--hero-left, 35%);
+    top: var(--hero-top, calc(max(100svh, 880px) * 0.896 - var(--door-h) / 2));
+  }
+  .motion-ready .door-object {
+    left: 50%;
+    top: 50%;
+  }
+  .motion-ready .door-frame {
+    left: var(--hero-left, 35%);
+    top: var(--hero-top, 60svh);
+  }
+  .motion-ready:not(.short-story) .hero-copy h1 {
+    font-size: clamp(42px, 12vw, 48px);
+  }
+}

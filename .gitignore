@@ -18,4 +18,7 @@ test.html
 
 # Node
 node_modules/
-package-lock.json
+
+# Local verification and deployment metadata
+artifacts/
+.vercel/
